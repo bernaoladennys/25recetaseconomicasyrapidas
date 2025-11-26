@@ -1,641 +1,467 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Come Rico Gastando Poco — 25 recetas económicas y rápidas</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Come Rico Gastando Poco — 25 recetas económicas y rápidas</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
 <style>
-/* Ajuste global para imágenes */
-.card img,
-.card-top img,
-.slider-container img {
-  width: 100% !important;
-  height: auto !important;
-  object-fit: contain !important;
-  display: block;
+:root {
+  --azul:#1A3D7C;
+  --verde:#2ECC71;
+  --blanco:#FFFFFF;
+  --negro:#111111;
+  --gris-oscuro:#424949;
+  --gris-suave:#F5F6FA;
+  --rojo:#E74C3C;
+  --amarillo-suave:#FFF6D5;
 }
 
-/* Evitar recortes en contenedores */
-.card-top,
-.slider-container div {
-  overflow: visible !important;
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Montserrat',sans-serif;
+  background:var(--blanco);
+  color:var(--gris-oscuro);
+  line-height:1.6;
+}
+img{max-width:100%;display:block;}
+
+.section{padding:80px 0;}
+.container{max-width:1080px;margin:0 auto;padding:0 24px;}
+
+.btn{
+  display:inline-block;
+  background:var(--verde);
+  color:#fff;
+  font-weight:700;
+  font-size:18px;
+  padding:16px 40px;
+  border-radius:999px;
+  box-shadow:0 6px 16px rgba(46,204,113,0.35);
+  transition:0.2s;
+}
+.btn:hover{transform:translateY(-2px);}
+.btn-large{
+  font-size:20px;
+  padding:20px 50px;
 }
 
-/* Forzar que la tarjeta deje espacio a la imagen vertical */
-.card {
-  display: flex;
-  flex-direction: column;
+h1,h2,h3,h4{color:var(--negro);}
+
+/* HERO */
+.hero-section{
+  padding:110px 0 90px;
+  background: url("hero-portada-limpia.png") no-repeat right center;
+  background-size: cover;
+  position:relative;
+}
+.hero-overlay{
+  background:linear-gradient(90deg, rgba(255,250,240,0.96) 0%, rgba(255,250,240,0.85) 50%, rgba(255,255,255,0) 100%);
+  position:absolute;
+  inset:0;
+}
+.hero-inner{
+  position:relative;
+  z-index:1;
+}
+.hero-card{
+  max-width:520px;
+  background:rgba(255,250,240,0.95);
+  padding:28px 26px 30px;
+  border-radius:18px;
+  box-shadow:0 16px 40px rgba(0,0,0,0.18);
+}
+.urgency-text{
+  background:var(--amarillo-suave);
+  padding:6px 14px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:600;
+  color:#A66A00;
+  display:inline-block;
+  margin-bottom:10px;
+}
+.hero-title{
+  font-size:34px;
+  font-weight:900;
+  line-height:1.2;
+  margin-bottom:12px;
+}
+.hero-subtitle{
+  font-size:16px;
+  margin-bottom:18px;
+}
+.benefits{
+  list-style:none;
+  margin-bottom:16px;
+}
+.benefits li{
+  display:flex;gap:10px;
+  margin-bottom:8px;
+  font-size:15px;
+}
+.icon-circle{
+  min-width:22px;height:22px;border-radius:50%;
+  background:var(--verde);color:#fff;font-size:13px;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;
+}
+.price-row{
+  display:flex;gap:12px;align-items:center;margin-bottom:10px;
+}
+.price-old{
+  color:var(--rojo);
+  text-decoration:line-through;
+  font-weight:600;
+}
+.price-new{
+  font-size:32px;
+  font-weight:900;
+  color:var(--verde);
 }
 
-/* Ajuste para mockups altos */
-.card-top {
-  width: 100%;
-  aspect-ratio: auto !important;
-  max-height: none !important;
+@media(max-width:900px){
+  .hero-section{
+    background-position:center top;
+  }
+  .hero-card{
+    max-width:100%;
+  }
 }
 
-/* Evitar recorte en el slider */
-.slider-container {
-  height: auto !important;
-  min-height: auto !important;
+/* QUÉ INCLUYE */
+.sec-incluye{
+  background:#FFFDF9;
+  text-align:center;
 }
+.incluye-img{
+  max-width:900px;
+  margin:0 auto;
+  border-radius:18px;
+  box-shadow:0 14px 32px rgba(0,0,0,0.18);
+}
+
+/* COMPARATIVA */
+.table-wrapper{
+  overflow-x:auto;
+}
+.compare-table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:760px;
+  background:#fff;
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow:0 6px 20px rgba(0,0,0,0.06);
+}
+.compare-table th{
+  background:var(--azul);
+  color:#fff;
+  padding:14px;
+  text-align:center;
+  font-weight:700;
+}
+.compare-table td{
+  padding:14px;
+  text-align:center;
+  border-bottom:1px solid #eee;
+  font-size:15px;
+}
+.feature-name{
+  text-align:left;
+  font-weight:600;
+  color:#222;
+}
+.highlight-col{
+  background:rgba(46,204,113,0.12);
+}
+.check{color:var(--verde);font-size:20px;font-weight:900;}
+.cross{color:var(--rojo);font-size:20px;font-weight:900;}
+
+/* PREVIEW RECETA */
+.sec-preview{
+  background:#FFF9F2;
+}
+.preview-grid{
+  max-width:900px;
+  margin:0 auto;
+  display:grid;
+  gap:28px;
+  grid-template-columns:1fr;
+}
+.preview-card{
+  background:#fff;
+  padding:26px 24px;
+  border-radius:18px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.12);
+}
+.preview-img{
+  border-radius:18px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.12);
+  overflow:hidden;
+}
+@media(min-width:900px){
+  .preview-grid{
+    grid-template-columns:1.3fr 1fr;
+  }
+}
+
+/* TESTIMONIOS */
+.testimonials-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:26px;
+}
+.testimonial{
+  background:#fff;
+  border-radius:16px;
+  padding:20px;
+  box-shadow:0 4px 16px rgba(0,0,0,0.05);
+}
+.testimonial-header{
+  display:flex;gap:12px;
+  margin-bottom:10px;
+}
+.testimonial-avatar{
+  width:56px;height:56px;border-radius:50%;overflow:hidden;
+}
+.author{font-weight:700;color:var(--azul);}
+.city{font-size:12px;color:#666;}
+
+/* NO ES PARA TODOS */
+.sec-no{
+  background:#FFFDF9;
+}
+.no-block{
+  max-width:700px;
+  background:#fff;
+  margin:0 auto;
+  padding:26px 24px;
+  border-radius:16px;
+  border-left:4px solid var(--rojo);
+  box-shadow:0 4px 16px rgba(0,0,0,0.05);
+}
+
+/* GARANTÍA */
+.guarantee{
+  background:var(--azul);
+  color:#fff;
+  padding:40px 28px;
+  border-radius:18px;
+  position:relative;
+}
+.guarantee-badge{
+  position:absolute;
+  top:16px;right:16px;
+  width:95px;height:95px;border-radius:50%;
+  background:#fff;color:var(--azul);
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;
+  font-weight:800;
+  font-size:12px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.25);
+}
+
+/* FAQ */
+.sec-faq{
+  background:var(--gris-suave);
+}
+.faq-item{
+  border-bottom:1px solid #ddd;
+  padding:14px 0;
+}
+.faq-question{
+  font-weight:700;color:var(--azul);
+  margin-bottom:8px;
+}
+
+/* CTA FINAL */
+.final-cta{
+  background:#F0FAF4;
+  text-align:center;
+  padding:70px 0;
+}
+
+/* FOOTER */
+footer{
+  background:#f2f3f4;
+  padding:20px 0;
+  font-size:14px;
+  color:#777;
+}
+.footer-inner{
+  max-width:1080px;
+  margin:0 auto;
+  padding:0 24px;
+  display:flex;justify-content:space-between;
+  flex-wrap:wrap;gap:8px;
+}
+footer a{text-decoration:underline;color:#777;}
 </style>
-  <style>
-    :root {
-      --azul: #1A3D7C;
-      --verde: #2ECC71;
-      --blanco: #FFFFFF;
-      --gris-claro: #F4F6F7;
-      --negro: #111111;
-      --gris-oscuro: #424949;
-      --rojo: #E74C3C;
-      --amarillo-suave: #FFF6D5;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: 'Montserrat', sans-serif;
-      color: var(--gris-oscuro);
-      background-color: var(--blanco);
-      line-height: 1.6;
-    }
-
-    h1, h2, h3, h4 { color: var(--negro); }
-
-    .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
-    .section { padding: 80px 0; }
-
-    a { text-decoration: none; }
-
-    .btn {
-      display: inline-block;
-      background-color: var(--verde);
-      color: var(--blanco);
-      font-weight: 800;
-      font-size: 18px;
-      padding: 18px 40px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3);
-      cursor: pointer;
-      text-decoration: none;
-      transition: 0.2s;
-    }
-    .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(46, 204, 113, 0.45); }
-    .btn-large { font-size: 20px; padding: 20px 56px; }
-
-    /* CONTROL GLOBAL DE IMÁGENES (ESTILO HOTMART) */
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    /* HERO */
-    .hero {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 48px;
-      padding-top: 80px;
-    }
-    .hero-title { font-size: 42px; font-weight: 900; margin-bottom: 18px; }
-    .hero-subtitle { font-size: 18px; margin-bottom: 24px; max-width: 540px; }
-
-    .benefits { list-style: none; margin-bottom: 18px; }
-    .benefits li {
-      display: flex; gap: 10px; font-size: 15px; margin-bottom: 8px;
-      align-items: flex-start;
-    }
-    .icon-circle {
-      min-width: 22px; height: 22px;
-      background: var(--verde);
-      color: white;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 13px; font-weight: 700;
-    }
-
-    .price-row { display: flex; gap: 12px; margin-bottom: 8px; align-items: baseline; }
-    .price-old {
-      font-size: 20px; color: var(--rojo); font-weight: 600;
-      text-decoration: line-through;
-    }
-    .price-new { font-size: 32px; font-weight: 900; color: var(--verde); }
-
-    .urgency-text {
-      font-size: 13px;
-      color: #C27C1A;
-      background: var(--amarillo-suave);
-      display: inline-block;
-      margin-bottom: 16px;
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-weight: 600;
-    }
-
-    .hero-right {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .mockup-frame {
-      width: 300px; height: 420px;
-      border-radius: 18px;
-      background: #f1f1f1;
-      box-shadow: 0 14px 32px rgba(0,0,0,0.15);
-      overflow: hidden; position: relative;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .mockup-inner { width: 90%; height: 92%; border-radius: 14px; overflow: hidden; background:white; }
-    .mockup-inner img { width: 100%; height: 100%; object-fit: contain; }
-
-    /* GRID 3 TARJETAS (TIPO HOTMART) */
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 28px;
-    }
-    .card {
-      background: white;
-      border-radius: 16px;
-      padding: 22px;
-      box-shadow: 0 6px 14px rgba(0,0,0,0.04);
-      height: 100%;
-    }
-    .card-top {
-      margin-bottom: 14px;
-      border-radius: 12px;
-      overflow: hidden;
-      background: var(--gris-claro);
-    }
-
-    /* Imágenes dentro de tarjetas y slider: tamaño controlado */
-    .card-top img,
-    .slider-container img {
-      width: 100%;
-      max-height: 260px;
-      object-fit: cover;
-    }
-
-    /* Comparativa */
-    .comparison { overflow-x: auto; margin-top: 24px; }
-    table { width: 100%; border-collapse: collapse; font-size: 14px; }
-    th {
-      background: var(--azul);
-      color: white;
-      padding: 10px 8px;
-      font-weight: 600;
-    }
-    td {
-      padding: 9px 8px;
-      border-bottom: 1px solid #eee;
-      text-align: center;
-    }
-    tr:nth-child(even) { background: #fafafa; }
-    .check { color: var(--verde); font-weight: 600; }
-    .cross { color: var(--rojo); }
-
-    /* Testimonios */
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-    }
-    .testimonial {
-      background: #fff;
-      border-radius: 16px;
-      padding: 20px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.04);
-      font-size: 14px;
-    }
-    .testimonial-header {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      margin-bottom: 8px;
-    }
-    .testimonial-avatar {
-      width: 48px; height: 48px; border-radius: 50%;
-      overflow: hidden; background:#ddd; flex-shrink:0;
-    }
-    .testimonial-avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .author { font-weight: 600; color: var(--azul); font-size: 14px; }
-    .city { font-size: 12px; color:#666; }
-
-    /* Guarantee */
-    .guarantee {
-      background: var(--azul);
-      color: white;
-      border-radius: 18px;
-      padding: 40px 28px;
-      position: relative;
-      overflow: hidden;
-    }
-    .guarantee-badge {
-      position:absolute; top:18px; right:18px;
-      width:95px; height:95px;
-      border-radius:50%;
-      background:white;
-      color:var(--azul);
-      display:flex; align-items:center; justify-content:center;
-      font-size:11px; font-weight:800; text-align:center;
-      box-shadow:0 6px 16px rgba(0,0,0,0.25);
-    }
-
-    /* FAQ */
-    .faq-item {
-      border-bottom: 1px solid #eee;
-      padding: 14px 0;
-      font-size: 15px;
-    }
-    .faq-item:last-child { border-bottom:none; }
-    .faq-question { font-weight:700; color:var(--azul); margin-bottom:6px; }
-
-    /* CTA final */
-    .final-cta {
-      background: rgba(46,204,113,0.08);
-      text-align:center;
-      padding:70px 0;
-    }
-
-    /* Footer */
-    footer {
-      background:#f2f3f4;
-      padding:20px 0;
-      font-size:14px;
-      color:#777;
-    }
-    .footer-inner {
-      display:flex;
-      justify-content:space-between;
-      gap:8px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
-    footer a { color:#777; text-decoration:underline; }
-
-    /* Responsive */
-    @media (max-width: 900px) {
-      .hero { flex-direction: column; text-align:center; }
-      .hero-right { order:-1; }
-      .benefits li { justify-content:center; }
-      .hero-subtitle { margin-left:auto; margin-right:auto; }
-    }
-
-    @media (max-width: 600px) {
-      .section { padding: 60px 0; }
-      .hero-title { font-size: 32px; }
-      .mockup-frame { width: 100%; max-width: 320px; }
-    }
-  </style>
 </head>
 
 <body>
 
 <!-- HERO -->
-<section class="section">
+<!-- HERO NUEVO -->
+<section class="hero-section">
   <div class="container">
-    <div class="hero">
+    <div class="hero-panel">
 
-      <div class="hero-content">
-        <span class="urgency-text">Precio de lanzamiento — solo primeras 200 copias</span>
+      <span class="urgency-text">Precio de lanzamiento — solo primeras 200 copias</span>
 
-        <h1 class="hero-title">Come rico gastando muy poco</h1>
+      <h1 class="hero-title">Come rico gastando muy poco</h1>
 
-        <p class="hero-subtitle">
-          25 recetas económicas (≤ S/5 y ≤ 25 minutos), un menú organizado de 3 semanas
-          y una lista de compras por país para que sepas exactamente cuánto vas a gastar antes de ir al mercado.
-        </p>
+      <p class="hero-subtitle">
+        25 recetas económicas (≤ S/5 y ≤ 25 minutos), un menú organizado de 3 semanas
+        y una lista de compras por país para que sepas exactamente cuánto vas a gastar antes de ir al mercado.
+      </p>
 
-        <ul class="benefits">
-          <li><span class="icon-circle">✓</span> Recetas reales, rápidas y con costo por plato.</li>
-          <li><span class="icon-circle">✓</span> Menú de 21 días sin repetir.</li>
-          <li><span class="icon-circle">✓</span> Lista de compras con precios para PE, MX, AR y CO.</li>
-          <li><span class="icon-circle">✓</span> Sustituciones claras cuando te falta algún ingrediente.</li>
-        </ul>
+      <ul class="benefits">
+        <li><span class="icon-circle">✓</span> Recetas reales, rápidas y con costo por plato.</li>
+        <li><span class="icon-circle">✓</span> Menú de 21 días sin repetir.</li>
+        <li><span class="icon-circle">✓</span> Lista de compras con precios para PE, MX, AR y CO.</li>
+        <li><span class="icon-circle">✓</span> Sustituciones claras cuando te falta algún ingrediente.</li>
+      </ul>
 
-        <div class="price-row">
-          <span class="price-old">$19</span>
-          <span class="price-new">$7</span>
-        </div>
-
-        <p style="font-size:13px; margin-bottom:18px;">
-          Menos que un delivery, a cambio de comer mejor toda la semana.
-        </p>
-
-        <a href="https://pay.hotmart.com/C103001834W" target="_blank" class="btn">Descargar ahora</a>
+      <div class="price-row">
+        <span class="price-old">$19</span>
+        <span class="price-new">$7</span>
       </div>
 
-      <div class="hero-right">
-        <div class="mockup-frame">
-          <div class="mockup-inner">
-            <img src="portada-ebook.jpg" alt="Portada del ebook Come Rico Gastando Poco">
-          </div>
-        </div>
-      </div>
+      <p style="font-size:13px;margin-bottom:18px;">
+        Menos que un delivery, a cambio de comer mejor toda la semana.
+      </p>
+
+      <a href="https://pay.hotmart.com/C103001834W" target="_blank" class="btn">Descargar ahora</a>
+
+      <p style="font-size:12px;margin-top:10px;opacity:0.8;">
+        🔒 Pago seguro con Hotmart · ⚡ Acceso instantáneo · Garantía 7 días
+      </p>
 
     </div>
   </div>
 </section>
 
+
 <!-- QUÉ INCLUYE -->
-<section class="section" style="background-color: var(--gris-claro);">
+<section class="section sec-incluye">
   <div class="container">
-    <h2 style="font-size: 32px; font-weight: 800; text-align: center; margin-bottom: 18px;">
-      Esto es lo que realmente recibes (Vista previa, datos borrosos. En el ebook viene completo)
-    </h2>
-    <p style="text-align: center; max-width: 720px; margin: 0 auto 42px; font-size: 17px;">
-      Nada de “inspiración culinaria vacía”. Solo herramientas prácticas para cocinar mejor, más barato y sin estrés.
+    <h2 style="font-size:32px;font-weight:800;margin-bottom:18px;">Esto es lo que recibes realmente</h2>
+    <p style="max-width:720px;margin:0 auto 42px;font-size:17px;">
+      Vista previa protegida. El contenido real dentro del ebook viene completo y en alta calidad.
     </p>
 
-    <div class="grid-3">
-      <!-- TARJETA 1: 25 RECETAS -->
-      <div class="card">
-        <div class="card-top">
-          <img src="preview-recetas-1.png" alt="Vista previa del ebook 25 recetas reales y rápidas">
-        </div>
-        <h3 style="font-size: 22px; margin-bottom: 10px; margin-top: 14px;">
-          25 RECETAS REALES Y RÁPIDAS
-        </h3>
-        <p style="font-size: 15px;">
-          Desayunos, almuerzos, cenas, sopas y postres hechos con ingredientes básicos,
-          listos en ≤ 25 minutos y con <strong>costo por plato</strong>.<br>
-          Cada receta tiene ingredientes claros, pasos numerados y tips para que no se te queme nada.
-        </p>
-      </div>
-
-      <!-- TARJETA 2: LISTA DE COMPRAS -->
-      <div class="card">
-        <div class="card-top">
-          <img src="preview-lista-compras.png" alt="Vista previa de la lista de compras semanal">
-        </div>
-        <h3 style="font-size: 22px; margin-bottom: 10px;">LISTA DE COMPRAS + PRECIOS</h3>
-        <p style="font-size: 15px;">
-          Una <strong>lista de compras semanal</strong> con cantidades aproximadas y
-          precios de referencia para Perú, México, Colombia y Argentina.
-          Vas al mercado sabiendo cuánto vas a gastar y qué es realmente necesario.
-        </p>
-      </div>
-
-      <!-- TARJETA 3: MENÚ 3 SEMANAS -->
-      <div class="card">
-        <div class="card-top">
-          <img src="preview-menu-3-semanas.png" alt="Vista previa del menú de 3 semanas">
-        </div>
-        <h3 style="font-size: 22px; margin-bottom: 10px;">MENÚ LISTO PARA 21 DÍAS</h3>
-        <p style="font-size: 15px;">
-          Un <strong>menú de 3 semanas sin repetir</strong>, con desayunos, almuerzos,
-          snacks y postres basados en las 25 recetas del ebook.
-          Solo sigues el plan y cocinas. Nada de pensar cada día “¿qué hago ahora?”.
-        </p>
-      </div>
-    </div> <!-- grid-3 -->
+    <img src="que-incluye.png" class="incluye-img" alt="Vista previa de las 3 tarjetas del ebook">
   </div>
 </section>
 
-<!-- SCRIPT DEL SLIDER -->
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const track = document.querySelector(".slider-track");
-    const btnPrev = document.querySelector(".slider-prev");
-    const btnNext = document.querySelector(".slider-next");
-
-    let index = 0;
-
-    btnNext.addEventListener("click", () => {
-      index = (index + 1) % 2;
-      track.style.transform = `translateX(-${index * 100}%)`;
-    });
-
-    btnPrev.addEventListener("click", () => {
-      index = (index - 1 + 2) % 2;
-      track.style.transform = `translateX(-${index * 100}%)`;
-    });
-  });
-</script>
-
-<!-- COMPARATIVA – NUEVA TABLA PREMIUM ESTABLE -->
+<!-- COMPARATIVA -->
 <section class="section">
   <div class="container">
+    <h2 style="font-size:32px;font-weight:800;text-align:center;margin-bottom:20px;">¿Por qué este ebook sí funciona?</h2>
 
-    <h2 style="font-size: 32px; font-weight: 800; text-align:center; margin-bottom:20px;">
-      ¿Por qué este ebook sí funciona?
-    </h2>
-
-    <p style="text-align:center; max-width:700px; margin:0 auto 40px; font-size:17px;">
+    <p style="text-align:center;max-width:700px;margin:0 auto 40px;font-size:17px;">
       Comparado con otras opciones, este ebook te da claridad, estructura y ahorro real desde el primer día.
     </p>
 
-    <style>
-      .table-wrapper {
-        overflow-x: auto;
-        margin-top: 20px;
-      }
-
-      .compare-table {
-        width: 100%;
-        border-collapse: collapse;
-        min-width: 720px; /* evita que se aplaste en pantallas pequeñas */
-        background: white;
-        border-radius: 14px;
-        overflow: hidden;
-        box-shadow: 0 6px 20px rgba(0,0,0,0.05);
-      }
-
-      .compare-table th {
-        background: var(--azul);
-        color: white;
-        padding: 14px;
-        text-align: center;
-        font-weight: 700;
-        font-size: 15px;
-      }
-
-      .highlight-col {
-        background: rgba(46, 204, 113, 0.15);
-        position: relative;
-      }
-
-      /* Sello recomendado (NO se mueve jamás) */
-      .highlight-col .label-reco {
-        position: absolute;
-        top: 6px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: var(--verde);
-        color: white;
-        padding: 4px 10px;
-        font-size: 11px;
-        border-radius: 8px;
-        font-weight: 700;
-        white-space: nowrap;
-      }
-
-      .compare-table td {
-        padding: 14px;
-        text-align: center;
-        border-bottom: 1px solid #eee;
-        font-size: 15px;
-      }
-
-      .compare-table tr:nth-child(even) {
-        background: #fafafa;
-      }
-
-      .feature-name {
-        font-weight: 600;
-        text-align: left !important;
-        padding-left: 16px;
-        color: #222;
-      }
-
-      .check {
-        font-size: 22px;
-        color: var(--verde);
-        font-weight: 900;
-      }
-
-      .cross {
-        font-size: 20px;
-        color: var(--rojo);
-        font-weight: 700;
-      }
-    </style>
-
-
     <div class="table-wrapper">
       <table class="compare-table">
-
         <thead>
           <tr>
             <th>Característica</th>
-
-            <th class="highlight-col">
-                         Come Rico Gastando Poco
-            </th>
-
+            <th class="highlight-col">Come Rico Gastando Poco</th>
             <th>Otros ebooks</th>
             <th>Videos random</th>
           </tr>
         </thead>
-
         <tbody>
-
           <tr>
             <td class="feature-name">Costo real por plato</td>
-            <td class="check">✓</td>
-            <td class="cross">✗</td>
-            <td class="cross">✗</td>
+            <td class="check">✓</td><td class="cross">✗</td><td class="cross">✗</td>
           </tr>
-
           <tr>
             <td class="feature-name">Listo en ≤ 25 minutos</td>
-            <td class="check">✓</td>
-            <td class="cross">✗</td>
-            <td class="check">✓</td>
+            <td class="check">✓</td><td class="cross">✗</td><td class="check">✓</td>
           </tr>
-
           <tr>
             <td class="feature-name">Lista de compras semanal</td>
-            <td class="check">✓</td>
-            <td class="cross">✗</td>
-            <td class="cross">✗</td>
+            <td class="check">✓</td><td class="cross">✗</td><td class="cross">✗</td>
           </tr>
-
           <tr>
             <td class="feature-name">Sustituciones cuando falta algo</td>
-            <td class="check">✓</td>
-            <td class="cross">✗</td>
-            <td class="cross">✗</td>
+            <td class="check">✓</td><td class="cross">✗</td><td class="cross">✗</td>
           </tr>
-
           <tr>
             <td class="feature-name">Precios según país</td>
-            <td class="check">✓</td>
-            <td class="cross">✗</td>
-            <td class="cross">✗</td>
+            <td class="check">✓</td><td class="cross">✗</td><td class="cross">✗</td>
           </tr>
-
           <tr>
             <td class="feature-name">Garantía real</td>
-            <td class="check">✓</td>
-            <td class="cross">✗</td>
-            <td class="cross">✗</td>
+            <td class="check">✓</td><td class="cross">✗</td><td class="cross">✗</td>
           </tr>
-
         </tbody>
-
       </table>
     </div>
 
-    <p style="text-align:center; font-size:18px; font-weight:700; color:var(--azul); margin-top:28px;">
+    <p style="text-align:center;font-size:18px;font-weight:700;color:var(--azul);margin-top:26px;">
       El ebook gana en cada punto clave. Y eso se nota al cocinar.
     </p>
-
   </div>
 </section>
 
-
-<!-- VISTA PREVIA DE RECETA (PROTEGIDA) -->
-<section class="section" style="background-color: var(--gris-claro);">
+<!-- VISTA PREVIA ARROZ CHAUFA -->
+<section class="section sec-preview">
   <div class="container">
-    <h2 style="font-size: 32px; font-weight: 800; text-align: center; margin-bottom: 14px;">
+    <h2 style="font-size:32px;font-weight:800;text-align:center;margin-bottom:14px;">
       Mira cómo se ve una receta por dentro
     </h2>
-    <p style="text-align: center; max-width: 600px; margin: 0 auto 36px; font-size: 17px;">
-      Esta es una vista previa real del formato. No es la receta completa, pero sí suficiente para ver lo fácil que es seguirlas.
+    <p style="text-align:center;max-width:600px;margin:0 auto 36px;font-size:17px;">
+      Vista previa protegida. Esto es lo que verás en el formato real del ebook.
     </p>
 
-    <div style="max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 28px; align-items: center;">
-      
-      <!-- TEXTO -->
-      <div style="background:#fff; border-radius:18px; padding:26px 24px; box-shadow:0 12px 30px rgba(0,0,0,0.08); font-size:15px;">
-        <h3 style="font-size: 24px; color:var(--azul); margin-bottom:10px;">POLLO AL AJO CON PAPAS (VISTA PREVIA)</h3>
-        <div style="font-weight:600; font-size:15px; margin-bottom:16px;">
-          ⏱ 25 min · 👨‍🍳 2 porciones · 💸 ≤ S/ 5
+    <div class="preview-grid">
+
+      <div class="preview-card">
+        <h3 style="font-size:24px;color:var(--azul);margin-bottom:10px;">ARROZ CHAUFA EXPRESS (VISTA PREVIA)</h3>
+
+        <div style="font-weight:600;margin-bottom:16px;">
+          ⏱ 18 min · 👨‍🍳 2 porciones · 💸 S/ 3.80
         </div>
 
-        <h4 style="font-size:18px; margin-bottom:8px;">Ingredientes (previa)</h4>
-        <ul style="padding-left:20px; margin-bottom:12px;">
-          <li>Pollo económico (muslos o piernas).</li>
-          <li>Papas en gajos.</li>
-          <li>Ajo, sal, pimienta.</li>
+        <h4 style="font-size:18px;margin-bottom:8px;">Ingredientes (previa)</h4>
+        <ul style="padding-left:20px;margin-bottom:12px;">
+          <li>Arroz cocido frío (del día anterior)</li>
+          <li>Huevos</li>
+          <li>Cebolla picada</li>
+          <li>Ajo</li>
+          <li>Salsa de soya</li>
           <li style="opacity:0.7;">… cantidades exactas dentro del ebook.</li>
         </ul>
 
-        <h4 style="font-size:18px; margin-bottom:8px;">Pasos (resumen)</h4>
-        <ol style="padding-left:20px; margin-bottom:12px;">
-          <li>Marinar el pollo.</li>
-          <li>Cocinar pollo y papas juntos.</li>
-          <li>Dorar y servir.</li>
+        <h4 style="font-size:18px;margin-bottom:8px;">Pasos (resumen)</h4>
+        <ol style="padding-left:20px;margin-bottom:12px;">
+          <li>Freír los huevos y reservar.</li>
+          <li>Sofreír ajo y cebolla.</li>
+          <li>Agregar el arroz frío y saltear bien.</li>
+          <li>Incorporar los huevos y la salsa de soya.</li>
           <li style="opacity:0.7;">Pasos completos dentro del ebook.</li>
         </ol>
 
-        <h4 style="font-size:18px; margin-bottom:8px;">También incluye:</h4>
+        <h4 style="font-size:18px;margin-bottom:8px;">También incluye:</h4>
         <ul style="padding-left:20px;">
-          <li>✔ Cantidades exactas.</li>
-          <li>✔ Sustituciones por ingrediente.</li>
-          <li>✔ Costo por país.</li>
+          <li>✔ Cantidades exactas</li>
+          <li>✔ Variantes económicas</li>
+          <li>✔ Costo por país</li>
         </ul>
       </div>
 
-      <!-- IMAGEN -->
-      <div style="border-radius:18px; overflow:hidden; box-shadow:0 10px 26px rgba(0,0,0,0.08); background:#fff;">
-        <img src="preview-pollo.png" alt="Vista previa de la receta de pollo al ajo con papas">
+      <div class="preview-img">
+        <img src="preview-arroz-chaufa.png" alt="Vista previa arroz chaufa">
       </div>
 
-    </div>
-
-    <div style="text-align:center; margin-top:32px;">
-      <a href="https://pay.hotmart.com/C103001834W" target="_blank" class="btn btn-large">Quiero las 25 recetas completas</a>
     </div>
   </div>
 </section>
@@ -643,20 +469,17 @@
 <!-- TESTIMONIOS -->
 <section class="section">
   <div class="container">
-    <h2 style="font-size: 32px; font-weight: 800; text-align: center; margin-bottom: 20px;">
+    <h2 style="font-size:32px;font-weight:800;text-align:center;margin-bottom:20px;">
       Lo que dicen quienes ya cambiaron su cocina
     </h2>
-    <p style="text-align: center; max-width: 700px; margin: 0 auto 40px; font-size: 16px;">
-      Sin guiones. Sin actores. Personas reales que cocinaron, ahorraron y ahora comen mejor.
+    <p style="text-align:center;max-width:700px;margin:0 auto 40px;font-size:16px;">
+      Personas reales que cocinan rico gastando poco gracias al ebook.
     </p>
 
     <div class="testimonials-grid">
-      
       <div class="testimonial">
         <div class="testimonial-header">
-          <div class="testimonial-avatar">
-            <img src="testimonio-andrea.png" alt="Testimonio Andrea">
-          </div>
+          <div class="testimonial-avatar"><img src="testimonio-andrea.png" alt="Testimonio Andrea"></div>
           <div>
             <div class="author">Andrea Flores</div>
             <div class="city">Lima, Perú</div>
@@ -667,9 +490,7 @@
 
       <div class="testimonial">
         <div class="testimonial-header">
-          <div class="testimonial-avatar">
-            <img src="testimonio-carlos.png" alt="Testimonio Carlos">
-          </div>
+          <div class="testimonial-avatar"><img src="testimonio-carlos.png" alt="Testimonio Carlos"></div>
           <div>
             <div class="author">Carlos Hernández</div>
             <div class="city">CDMX, México</div>
@@ -680,9 +501,7 @@
 
       <div class="testimonial">
         <div class="testimonial-header">
-          <div class="testimonial-avatar">
-            <img src="testimonio-ana.png" alt="Testimonio Ana">
-          </div>
+          <div class="testimonial-avatar"><img src="testimonio-ana.png" alt="Testimonio Ana"></div>
           <div>
             <div class="author">Ana Morales</div>
             <div class="city">Buenos Aires, Argentina</div>
@@ -690,73 +509,61 @@
         </div>
         <p>“Soy mamá de dos niños. Ahorramos casi $800 pesos al mes. El ebook vale oro.”</p>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- PARA QUIÉN NO ES -->
-<section class="section">
+<!-- NO ES PARA TODOS -->
+<section class="section sec-no">
   <div class="container">
-
-    <h2 style="font-size: 32px; font-weight: 800; text-align: center; margin-bottom: 18px;">
+    <h2 style="font-size:32px;font-weight:800;text-align:center;margin-bottom:18px;">
       Esto NO es para todos
     </h2>
 
-    <div style="max-width: 640px; margin: 0 auto; background: white; padding: 26px 24px; border-radius: 14px; border-left: 4px solid var(--rojo); box-shadow: 0 4px 16px rgba(0,0,0,0.04); font-size:15px;">
-      <ul style="line-height: 1.7;">
+    <div class="no-block">
+      <ul style="line-height:1.7;">
         <li>❌ Si buscas platos gourmet caros.</li>
         <li>❌ Si no quieres cocinar nada.</li>
         <li>❌ Si prefieres gastar en delivery todos los días.</li>
       </ul>
-      <p style="font-weight: 600; font-size: 18px; color: var(--verde); margin-top: 4px;">
+      <p style="font-weight:600;font-size:18px;color:var(--verde);margin-top:8px;">
         ✅ Si quieres comer mejor sin gastar más, entonces sí es para ti.
       </p>
     </div>
-
   </div>
 </section>
 
 <!-- GARANTÍA -->
 <section class="section">
   <div class="container">
-
     <div class="guarantee">
-      <div class="guarantee-badge">
-        🔒<br>GARANTÍA<br>7 DÍAS
-      </div>
+      <div class="guarantee-badge">GARANTÍA<br>7 DÍAS</div>
 
-      <h2 style="font-size: 30px; font-weight: 800; margin-bottom: 14px;">
-        🔒 Garantía sin excusas de 7 días
-      </h2>
+      <h2 style="font-size:30px;font-weight:800;margin-bottom:12px;">🔒 Garantía sin excusas de 7 días</h2>
 
-      <p style="font-size: 18px; max-width: 700px; line-height: 1.7;">
+      <p style="font-size:18px;max-width:700px;line-height:1.6;">
         Si en 7 días no notas ahorro real en tu bolsillo, te devuelvo tu dinero. Sin preguntas.
       </p>
 
-      <p style="font-size: 15px; margin-top: 10px; opacity: 0.9;">
-        No necesitas mandar fotos ni justificar nada. Si no te sirve, no deberías pagarlo.
+      <p style="font-size:15px;margin-top:8px;opacity:0.9;">
+        No necesitas justificar nada. Si no te sirve, no deberías pagarlo.
       </p>
 
-      <p style="font-size: 15px; margin-top: 14px;">
+      <p style="font-size:15px;margin-top:14px;">
         ✅ <strong>Compra protegida:</strong> o te ayuda a ahorrar, o recuperas tu dinero.
       </p>
     </div>
-
   </div>
 </section>
 
-
 <!-- FAQ -->
-<section class="section" style="background-color: var(--gris-claro);">
+<section class="section sec-faq">
   <div class="container">
-
-    <h2 style="font-size: 32px; font-weight: 800; text-align: center; margin-bottom: 24px;">
+    <h2 style="font-size:32px;font-weight:800;text-align:center;margin-bottom:24px;">
       Preguntas frecuentes
     </h2>
 
-    <div style="max-width: 800px; margin: 0 auto; font-size: 15px;">
-
+    <div style="max-width:800px;margin:0 auto;font-size:15px;">
       <div class="faq-item">
         <div class="faq-question">¿Lo puedo usar si no hago todas las recetas?</div>
         <p>Sí. Incluso una receta nueva a la semana ya marca diferencia en tu bolsillo.</p>
@@ -769,7 +576,7 @@
 
       <div class="faq-item">
         <div class="faq-question">¿Puedo pagar desde cualquier país?</div>
-        <p>Sí. La plataforma convierte automáticamente el precio a tu moneda local.</p>
+        <p>Sí. Hotmart convierte automáticamente el precio a tu moneda local.</p>
       </div>
 
       <div class="faq-item">
@@ -779,44 +586,41 @@
 
       <div class="faq-item">
         <div class="faq-question">¿Qué recibo exactamente?</div>
-        <p>El PDF del ebook, la lista de compras, la tabla de precios editable y acceso vitalicio.</p>
+        <p>El PDF del ebook, la lista de compras, el menú organizado y acceso vitalicio.</p>
       </div>
-
     </div>
-
   </div>
 </section>
 
 <!-- CTA FINAL -->
-<section id="comprar" class="final-cta">
+<section class="final-cta">
   <div class="container">
-    <h2 style="font-size: 32px; font-weight: 800; margin-bottom: 18px;">
+    <h2 style="font-size:32px;font-weight:800;margin-bottom:18px;">
       Tu comida no debería ser un problema. Empieza hoy.
     </h2>
-    <p style="font-size: 19px; max-width: 600px; margin: 0 auto 22px; color: var(--negro);">
-      Por solo <strong style="color: var(--verde);">$7</strong> — menos que un delivery.
+    <p style="font-size:19px;max-width:600px;margin:0 auto 22px;color:var(--negro);">
+      Por solo <strong style="color:var(--verde);">$7</strong> — menos que un delivery.
     </p>
 
-    <a href="https://pay.hotmart.com/C103001834W" target="_blank" class="btn btn-large">Empezar a ahorrar hoy por solo $7</a>
+    <a href="https://pay.hotmart.com/C103001834W" target="_blank" class="btn btn-large">
+      Empezar a ahorrar hoy por solo $7
+    </a>
 
-        <p style="font-size: 13px; margin-top: 18px; color: var(--gris-oscuro);">
-      📥 Acceso instantáneo al PDF + listas descargables<br>
-      🔒 Pago 100% seguro · ✅ Garantía de 7 días incluida
+    <p style="font-size:13px;margin-top:18px;color:var(--gris-oscuro);">
+      📥 Acceso instantáneo · 🔒 Pago seguro · ✅ Garantía de 7 días incluida
     </p>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="container">
-    <div class="footer-inner">
-      <span>© 2025 Come Rico Gastando Poco</span>
-      <span>
-        <a href="#">Política de privacidad</a> ·
-        <a href="#">Términos</a> ·
-        <a href="#">Contacto</a>
-      </span>
-    </div>
+  <div class="footer-inner">
+    <span>© 2025 Come Rico Gastando Poco</span>
+    <span>
+      <a href="#">Política de privacidad</a> ·
+      <a href="#">Términos</a> ·
+      <a href="#">Contacto</a>
+    </span>
   </div>
 </footer>
 
