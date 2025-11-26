@@ -231,7 +231,32 @@ h1,h2,h3,h4{color:var(--negro);}
     border-radius: 22px;               /* Coincide con el wrapper */
 }
 
+/* FIX HÉRO EN MÓVIL */
+@media (max-width: 900px) {
 
+  .hero-section {
+    background-position: center bottom !important;
+    background-size: 170% !important; /* agranda el libro para que se vea a nivel pro */
+    padding-top: 40px !important;
+    padding-bottom: 80px !important;
+  }
+
+  .hero-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(255,250,240,1) 0%,
+      rgba(255,250,240,0.95) 40%,
+      rgba(255,250,240,0.85) 70%,
+      rgba(255,255,255,0.8) 100%
+    ) !important;
+  }
+
+  .hero-card {
+    background: rgba(255,250,240,0.92) !important;
+    backdrop-filter: blur(2px);
+    border-radius: 18px;
+  }
+}
 /* TESTIMONIOS */
 .testimonials-grid{
   display:grid;
