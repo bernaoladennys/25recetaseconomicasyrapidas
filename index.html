@@ -462,8 +462,16 @@ footer a{text-decoration:underline;color:#777;}
   }
 
   .hero-subtitle{
-    font-size: 16px;
+  font-size:16px;
+  margin-bottom:18px;
+}
+
+@media (min-width: 900px){
+  .hero-subtitle{
+    max-width: 620px;  /* ajusta 580 / 600 / 650 si quieres más o menos ancho */
   }
+}
+
 
   .benefits li{
     font-size: 15px;
@@ -483,6 +491,25 @@ footer a{text-decoration:underline;color:#777;}
     box-shadow: 0 16px 36px rgba(0,0,0,0.22);
   }
 }
+.ahorro-box {
+  margin-top: 20px;
+  background: #fff7e0;
+  padding: 18px;
+  border-radius: 12px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.ahorro-box .check-icon {
+  color: #00b870;
+  font-size: 22px;
+  font-weight: 900;
+  flex-shrink: 0;
+}
+
 </style>
 </head>
 
@@ -509,6 +536,18 @@ footer a{text-decoration:underline;color:#777;}
         <li><span class="icon-circle">✓</span> Lista de compras con precios para PE, MX, AR y CO.</li>
         <li><span class="icon-circle">✓</span> Sustituciones claras cuando te falta algún ingrediente.</li>
       </ul>
+<div class="ahorro-box">
+  <span class="check-icon">✔</span>
+  <p> 
+    <strong>
+  En Perú estás gastando mucho más de lo que crees.<br>
+  Quien improvisa sus comidas termina gastando más de S/470 al mes.<br><br>
+  Con este menú organizado gastas menos de S/220 al mes.<br>
+  Ahorro real: +S/150 cada mes.<br><br>
+  (En MX ahorras $200+, en AR $8.000+, en CO $20.000+)
+</strong>
+  </p>
+</div>
 
       <div class="price-row">
         <span class="price-old">$19</span>
@@ -516,7 +555,7 @@ footer a{text-decoration:underline;color:#777;}
       </div>
 
       <p style="font-size:13px;margin-bottom:18px;">
-        Menos que un delivery, a cambio de comer mejor toda la semana.
+        Pagas S/26 una sola vez y ahorras más de S/150 cada mes.
       </p>
 
       <a href="https://pay.hotmart.com/C103001834W" target="_blank" class="btn">Descargar ahora</a>
