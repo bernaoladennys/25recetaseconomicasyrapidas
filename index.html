@@ -380,6 +380,36 @@ footer a{text-decoration:underline;color:#777;}
   max-width: 1080px;
   padding-right: 40%; /* reserva espacio para la portada */
 }
+/* Ajuste móvil para la imagen de "Esto es lo que recibes" */
+@media (max-width: 600px){
+
+  .sec-incluye{
+    padding: 40px 0;
+  }
+
+  .incluye-img{
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 18px;
+    box-shadow: 0 10px 26px rgba(0,0,0,0.10);
+  }
+}
+/* Ajuste móvil para la tabla comparativa */
+@media (max-width: 600px){
+
+  .compare-table{
+    font-size: 12px;
+    min-width: 600px;  /* sigue permitiendo scroll horizontal pero más legible */
+  }
+
+  .compare-table th,
+  .compare-table td{
+    padding: 8px 6px;
+  }
+}
 
 </style>
 </head>
