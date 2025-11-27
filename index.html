@@ -73,6 +73,15 @@ h1,h2,h3,h4{color:var(--negro);}
   border-radius:18px;
   box-shadow:0 16px 40px rgba(0,0,0,0.18);
 }
+.hero-figure-mobile{
+  display:none;          /* Oculto por defecto (PC / tablet) */
+  margin-top:24px;
+}
+
+.hero-figure-mobile img{
+  border-radius:18px;
+  box-shadow:0 10px 26px rgba(0,0,0,0.18);
+}
 .urgency-text{
   background:var(--amarillo-suave);
   padding:6px 14px;
@@ -122,15 +131,20 @@ h1,h2,h3,h4{color:var(--negro);}
   color:var(--verde);
 }
 
-@media(max-width:900px){
+/* HERO EN MÓVIL – SIN FONDO CORTADO */
+@media (max-width: 900px) {
+
   .hero-section{
-    background-position:center top;
+    background: none !important;          /* quita la imagen de fondo */
+    background-color: #F9E4C5 !important; /* beige tipo cocina */
+    padding-top: 70px;
+    padding-bottom: 70px;
   }
+
   .hero-card{
-    max-width:100%;
+    max-width: 100%;
   }
 }
-
 /* QUÉ INCLUYE */
 .sec-incluye{
   background:#FFFDF9;
@@ -324,26 +338,31 @@ footer{
 footer a{text-decoration:underline;color:#777;}
 
 /* 🔥 HERO EN MÓVIL – VERSIÓN FINAL */
+/* 🔥 Versión limpia en CELULAR */
 @media (max-width: 900px) {
 
-  .hero-section {
-    /* mueve y escala la portada */
-    background-position: right bottom !important;
-    background-size: 150% !important;
-    padding-top: 70px !important;
-    padding-bottom: 130px !important;
+  /* Quitamos fondo recortado y usamos color beige limpio */
+  .hero-section{
+    background:none !important;
+    background-color:#F9E4C5 !important; /* beige cocina */
+    padding-top:70px;
+    padding-bottom:40px;
   }
 
-  .hero-card {
-    /* panel beige suave detrás del texto (Opción A) */
-    max-width: 100%;
-    background: rgba(255, 248, 235, 0.94);
-    padding: 24px 20px 30px;
-    border-radius: 18px;
-    box-shadow: 0 8px 22px rgba(0,0,0,0.15);
+  /* Tarjeta de texto ocupa todo el ancho */
+  .hero-card{
+    max-width:100%;
+    background:#FFF8EB;
+    padding:24px 20px 28px;
+    border-radius:18px;
+    box-shadow:0 8px 22px rgba(0,0,0,0.12);
+  }
+
+  /* Mostramos la imagen de la portada como bloque aparte */
+  .hero-figure-mobile{
+    display:block;
   }
 }
-
 </style>
 </head>
 
@@ -386,7 +405,11 @@ footer a{text-decoration:underline;color:#777;}
         🔒 Pago seguro con Hotmart · ⚡ Acceso instantáneo · Garantía 7 días
       </p>
 
+    <!-- 👇 NUEVO: imagen SOLO para móvil -->
+    <div class="hero-figure-mobile">
+      <img src="hero-portada-limpia.png" alt="Portada del ebook Come Rico Gastando Poco">
     </div>
+
   </div>
 </section>
 
