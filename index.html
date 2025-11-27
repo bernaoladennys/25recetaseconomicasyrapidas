@@ -323,25 +323,27 @@ footer{
 }
 footer a{text-decoration:underline;color:#777;}
 
-/* 🔥 HERO OPTIMIZADO EN MÓVIL */
+/* 🔥 HERO EN MÓVIL – VERSIÓN FINAL */
 @media (max-width: 900px) {
 
   .hero-section {
-    background-position: center bottom !important;
-    background-size: 170% !important;  /* se ve el libro pero no invade tanto */
+    /* mueve y escala la portada */
+    background-position: right bottom !important;
+    background-size: 150% !important;
     padding-top: 70px !important;
-    padding-bottom: 110px !important;
+    padding-bottom: 130px !important;
   }
 
-  /* El panel donde está todo el texto del héro */
   .hero-card {
+    /* panel beige suave detrás del texto (Opción A) */
     max-width: 100%;
-    background: rgba(255, 248, 235, 0.92); /* beige suave (opción A) */
-    padding: 24px 20px 28px;
+    background: rgba(255, 248, 235, 0.94);
+    padding: 24px 20px 30px;
     border-radius: 18px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.10);
+    box-shadow: 0 8px 22px rgba(0,0,0,0.15);
   }
 }
+
 </style>
 </head>
 
