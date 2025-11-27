@@ -50,22 +50,39 @@ img{max-width:100%;display:block;}
 
 h1,h2,h3,h4{color:var(--negro);}
 
-/* HERO */
+/* ================= HERO DESKTOP ================= */
+
 .hero-section{
   padding:110px 0 90px;
-  background: url("hero-portada-limpia.png") no-repeat right center;
-  background-size: cover;
+  background-color:#F7E9D5;
+  background-image:url("hero-portada-limpia.png");
+  background-repeat:no-repeat;
+  background-position:right center;
+  background-size:540px auto;
   position:relative;
 }
+
 .hero-overlay{
-  background:linear-gradient(90deg, rgba(255,250,240,0.96) 0%, rgba(255,250,240,0.85) 50%, rgba(255,255,255,0) 100%);
+  background:linear-gradient(
+    90deg,
+    rgba(255,250,240,0.96) 0%,
+    rgba(255,250,240,0.88) 40%,
+    rgba(255,255,255,0) 100%
+  );
   position:absolute;
   inset:0;
 }
+
 .hero-inner{
   position:relative;
   z-index:1;
 }
+
+.hero-section .container{
+  max-width:1080px;
+  padding-right:40%;           /* deja espacio para la portada de fondo */
+}
+
 .hero-card{
   max-width:520px;
   background:rgba(255,250,240,0.95);
@@ -73,15 +90,14 @@ h1,h2,h3,h4{color:var(--negro);}
   border-radius:18px;
   box-shadow:0 16px 40px rgba(0,0,0,0.18);
 }
-.hero-figure-mobile{
-  display:none;          /* Oculto por defecto (PC / tablet) */
-  margin-top:24px;
+
+/* por si tienes un .hero flex en el HTML */
+.hero{
+  display:flex;
+  flex-direction:column;
+  gap:24px;
 }
 
-.hero-figure-mobile img{
-  border-radius:18px;
-  box-shadow:0 10px 26px rgba(0,0,0,0.18);
-}
 .urgency-text{
   background:var(--amarillo-suave);
   padding:6px 14px;
@@ -102,23 +118,35 @@ h1,h2,h3,h4{color:var(--negro);}
   font-size:16px;
   margin-bottom:18px;
 }
+
 .benefits{
   list-style:none;
   margin-bottom:16px;
 }
 .benefits li{
-  display:flex;gap:10px;
+  display:flex;
+  gap:10px;
   margin-bottom:8px;
   font-size:15px;
 }
 .icon-circle{
-  min-width:22px;height:22px;border-radius:50%;
-  background:var(--verde);color:#fff;font-size:13px;
-  display:flex;align-items:center;justify-content:center;
+  min-width:22px;
+  height:22px;
+  border-radius:50%;
+  background:var(--verde);
+  color:#fff;
+  font-size:13px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   font-weight:700;
 }
+
 .price-row{
-  display:flex;gap:12px;align-items:center;margin-bottom:10px;
+  display:flex;
+  gap:12px;
+  align-items:center;
+  margin-bottom:10px;
 }
 .price-old{
   color:var(--rojo);
@@ -131,24 +159,46 @@ h1,h2,h3,h4{color:var(--negro);}
   color:var(--verde);
 }
 
-/* HERO EN MÓVIL – SIN FONDO CORTADO */
-@media (max-width: 900px) {
-
-  .hero-section{
-    background: none !important;          /* quita la imagen de fondo */
-    background-color: #F9E4C5 !important; /* beige tipo cocina */
-    padding-top: 70px;
-    padding-bottom: 70px;
-  }
-
-  .hero-card{
-    max-width: 100%;
-  }
+/* HERO IMAGEN EXTRA PARA MÓVIL */
+.hero-figure-mobile{
+  display:none;
+  margin-top:32px;
+  margin-bottom:16px;
+  text-align:center;
 }
-/* QUÉ INCLUYE */
+.hero-figure-mobile img{
+  width:100%;
+  max-width:430px;
+  margin:0 auto;
+  border-radius:24px;
+  box-shadow:0 16px 36px rgba(0,0,0,0.22);
+}
+
+/* CAJA DE AHORRO BAJO LOS BULLETS */
+.ahorro-box {
+  margin-top:20px;
+  background:#FFF7E0;
+  padding:18px;
+  border-radius:12px;
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+  font-size:16px;
+  line-height:1.45;
+}
+.ahorro-box .check-icon {
+  color:#00b870;
+  font-size:22px;
+  font-weight:900;
+  flex-shrink:0;
+}
+
+/* ================= QUÉ INCLUYE ================= */
+
 .sec-incluye{
   background:#FFFDF9;
   text-align:center;
+  padding-top:40px;
 }
 .incluye-img{
   max-width:900px;
@@ -157,7 +207,8 @@ h1,h2,h3,h4{color:var(--negro);}
   box-shadow:0 14px 32px rgba(0,0,0,0.18);
 }
 
-/* COMPARATIVA */
+/* ================= COMPARATIVA ================= */
+
 .table-wrapper{
   overflow-x:auto;
 }
@@ -194,7 +245,8 @@ h1,h2,h3,h4{color:var(--negro);}
 .check{color:var(--verde);font-size:20px;font-weight:900;}
 .cross{color:var(--rojo);font-size:20px;font-weight:900;}
 
-/* PREVIEW RECETA */
+/* ================= PREVIEW RECETA ================= */
+
 .sec-preview{
   background:#FFF9F2;
 }
@@ -211,41 +263,30 @@ h1,h2,h3,h4{color:var(--negro);}
   border-radius:18px;
   box-shadow:0 12px 30px rgba(0,0,0,0.12);
 }
-.preview-img{
-  border-radius:18px;
-  box-shadow:0 12px 30px rgba(0,0,0,0.12);
-  overflow:hidden;
-}
-@media(min-width:900px){
-  .preview-grid{
-    grid-template-columns:1.3fr 1fr;
-  }
-}
 
-/* ----------- IMAGEN PREMIUM PARA VISTA PREVIA ----------- */
-
+/* wrapper premium */
 .preview-img {
-    width: 100%;
-    height: 100%;
-    min-height: 420px;                 /* Altura siempre profesional */
-    border-radius: 22px;               /* Borde redondeado */
-    background: #ffffff;               /* Fondo limpio */
-    overflow: hidden;                  /* Recorte moderno */
-    box-shadow: 0 14px 34px rgba(0,0,0,0.12);  /* Sombra premium */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width:100%;
+  height:100%;
+  min-height:420px;
+  border-radius:22px;
+  background:#ffffff;
+  overflow:hidden;
+  box-shadow:0 14px 34px rgba(0,0,0,0.12);
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
-
 .preview-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;                 /* 🔥 Hace que la imagen llene TODO */
-    object-position: center;           /* 🔥 Encadre profesional */
-    border-radius: 22px;               /* Coincide con el wrapper */
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  border-radius:22px;
 }
 
-/* TESTIMONIOS */
+/* ================= TESTIMONIOS ================= */
+
 .testimonials-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
@@ -258,16 +299,21 @@ h1,h2,h3,h4{color:var(--negro);}
   box-shadow:0 4px 16px rgba(0,0,0,0.05);
 }
 .testimonial-header{
-  display:flex;gap:12px;
+  display:flex;
+  gap:12px;
   margin-bottom:10px;
 }
 .testimonial-avatar{
-  width:56px;height:56px;border-radius:50%;overflow:hidden;
+  width:56px;
+  height:56px;
+  border-radius:50%;
+  overflow:hidden;
 }
 .author{font-weight:700;color:var(--azul);}
 .city{font-size:12px;color:#666;}
 
-/* NO ES PARA TODOS */
+/* ================= NO ES PARA TODOS ================= */
+
 .sec-no{
   background:#FFFDF9;
 }
@@ -281,7 +327,8 @@ h1,h2,h3,h4{color:var(--negro);}
   box-shadow:0 4px 16px rgba(0,0,0,0.05);
 }
 
-/* GARANTÍA */
+/* ================= GARANTÍA ================= */
+
 .guarantee{
   background:var(--azul);
   color:#fff;
@@ -291,17 +338,24 @@ h1,h2,h3,h4{color:var(--negro);}
 }
 .guarantee-badge{
   position:absolute;
-  top:16px;right:16px;
-  width:95px;height:95px;border-radius:50%;
-  background:#fff;color:var(--azul);
-  display:flex;align-items:center;justify-content:center;
+  top:16px;
+  right:16px;
+  width:95px;
+  height:95px;
+  border-radius:50%;
+  background:#fff;
+  color:var(--azul);
+  display:flex;
+  align-items:center;
+  justify-content:center;
   text-align:center;
   font-weight:800;
   font-size:12px;
   box-shadow:0 6px 18px rgba(0,0,0,0.25);
 }
 
-/* FAQ */
+/* ================= FAQ ================= */
+
 .sec-faq{
   background:var(--gris-suave);
 }
@@ -309,19 +363,23 @@ h1,h2,h3,h4{color:var(--negro);}
   border-bottom:1px solid #ddd;
   padding:14px 0;
 }
+.faq-item:last-child{border-bottom:none;}
 .faq-question{
-  font-weight:700;color:var(--azul);
+  font-weight:700;
+  color:var(--azul);
   margin-bottom:8px;
 }
 
-/* CTA FINAL */
+/* ================= CTA FINAL ================= */
+
 .final-cta{
   background:#F0FAF4;
   text-align:center;
   padding:70px 0;
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
+
 footer{
   background:#f2f3f4;
   padding:20px 0;
@@ -332,184 +390,115 @@ footer{
   max-width:1080px;
   margin:0 auto;
   padding:0 24px;
-  display:flex;justify-content:space-between;
-  flex-wrap:wrap;gap:8px;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:8px;
 }
 footer a{text-decoration:underline;color:#777;}
 
-/* 🔥 HERO EN MÓVIL – VERSIÓN FINAL */
-/* 🔥 Versión limpia en CELULAR */
-@media (max-width: 900px) {
+/* ================= RESPONSIVE ================= */
 
-  /* Quitamos fondo recortado y usamos color beige limpio */
+/* preview en 2 columnas en pantallas grandes */
+@media(min-width:900px){
+  .preview-grid{
+    grid-template-columns:1.3fr 1fr;
+  }
+  .hero-subtitle{
+    max-width:620px;
+  }
+}
+
+/* Ajustes generales tablet / móvil */
+@media (max-width:900px){
+
   .hero-section{
-    background:none !important;
-    background-color:#F9E4C5 !important; /* beige cocina */
+    background:none;
+    background-color:#F9E4C5;
     padding-top:70px;
-    padding-bottom:40px;
+    padding-bottom:50px;
   }
 
-  /* Tarjeta de texto ocupa todo el ancho */
+  .hero-section .container{
+    padding-right:24px;
+  }
+
   .hero-card{
     max-width:100%;
     background:#FFF8EB;
     padding:24px 20px 28px;
-    border-radius:18px;
     box-shadow:0 8px 22px rgba(0,0,0,0.12);
   }
 
-  /* Mostramos la imagen de la portada como bloque aparte */
   .hero-figure-mobile{
     display:block;
   }
-}
-.hero-figure-mobile img{
-  border-radius: 22px;
-  box-shadow: 0 14px 32px rgba(0,0,0,0.18);
-}
-.hero-section{
-  background-color: #F7E9D5 !important;
-}
-.hero-figure-mobile{
-  margin-top: 40px;
-}
-.hero-card{
-  max-width: 520px;      /* límite de ancho del texto */
-}
-.hero-section .container{
-  max-width: 1080px;
-  padding-right: 40%; /* reserva espacio para la portada */
-}
-/* Ajuste móvil para la imagen de "Esto es lo que recibes" */
-@media (max-width: 600px){
 
   .sec-incluye{
-    padding: 40px 0;
+    padding:40px 0;
   }
 
   .incluye-img{
-    max-width: 100%;
-    width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    border-radius: 18px;
-    box-shadow: 0 10px 26px rgba(0,0,0,0.10);
-  }
-}
-/* Ajuste móvil para la tabla comparativa */
-@media (max-width: 600px){
-
-  .compare-table{
-    font-size: 12px;
-    min-width: 600px;  /* sigue permitiendo scroll horizontal pero más legible */
-  }
-
-  .compare-table th,
-  .compare-table td{
-    padding: 8px 6px;
+    max-width:100%;
+    width:100%;
+    height:auto;
+    box-shadow:0 10px 26px rgba(0,0,0,0.10);
   }
 }
 
-@media (max-width: 600px){
-  .hero-card{
-    max-width: 380px;
-    margin: 0 auto;
-  }
-}
-.hero-figure-mobile{
-  margin-top: 32px;
-  margin-bottom: 16px;
-  text-align: center;
-}
-.sec-incluye{
-  padding-top: 40px;
-}
+/* Ajustes específicos para CELULAR */
+@media (max-width:600px){
 
-.hero-figure-mobile img{
-  width: 100%;
-  max-width: 420px;   /* subimos el tamaño máximo */
-  margin: 0 auto;
-  border-radius: 22px;
-  box-shadow: 0 14px 32px rgba(0,0,0,0.18);
-}
-/* AJUSTE HERO PARA MÓVIL (≤ 600px) */
-@media (max-width: 600px) {
-
-  .hero-right{
-   display:none;
-  }
   .hero-section{
-    padding-top: 32px;
-    padding-bottom: 40px;
+    padding-top:32px;
+    padding-bottom:40px;
   }
 
   .hero{
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .hero-card{
+    max-width:380px;
+    margin:0 auto;
   }
 
   .hero-content{
-    width: 100%;
-    max-width: 480px;
-    margin: 0 auto;          /* centra el bloque de texto */
-    padding: 0 16px;         /* aire lateral */
+    width:100%;
+    max-width:480px;
+    margin:0 auto;
+    padding:0 16px;
   }
 
   .hero-title{
-    font-size: 34px;         /* un poco más grande */
-    line-height: 1.18;
+    font-size:34px;
+    line-height:1.18;
   }
 
   .hero-subtitle{
-  font-size:16px;
-  margin-bottom:18px;
-}
-
-@media (min-width: 900px){
-  .hero-subtitle{
-    max-width: 620px;  /* ajusta 580 / 600 / 650 si quieres más o menos ancho */
+    font-size:16px;
+    margin-bottom:18px;
   }
-}
-
 
   .benefits li{
-    font-size: 15px;
+    font-size:15px;
   }
 
-  /* BLOQUE CON LA PORTADA EN MÓVIL */
   .hero-figure-mobile{
-    width: 100%;
-    margin: 32px auto 8px;
-    text-align: center;
+    width:100%;
+    margin:32px auto 8px;
   }
 
-  .hero-figure-mobile img{
-    width: 100%;
-    max-width: 430px;        /* portada más grande */
-    border-radius: 24px;
-    box-shadow: 0 16px 36px rgba(0,0,0,0.22);
+  .compare-table{
+    font-size:12px;
+    min-width:600px;
+  }
+  .compare-table th,
+  .compare-table td{
+    padding:8px 6px;
   }
 }
-.ahorro-box {
-  margin-top: 20px;
-  background: #fff7e0;
-  padding: 18px;
-  border-radius: 12px;
-  display: flex;
-  gap: 12px;
-  align-items: flex-start;
-  font-size: 16px;
-  line-height: 1.45;
-}
-
-.ahorro-box .check-icon {
-  color: #00b870;
-  font-size: 22px;
-  font-weight: 900;
-  flex-shrink: 0;
-}
-
 </style>
 </head>
 
